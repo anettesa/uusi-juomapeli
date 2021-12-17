@@ -14,12 +14,12 @@ const imageArray = ["assets/1.png", "assets/2.png", "assets/3.png", "assets/4.pn
 "assets/50.png",
 
 ];
-
+const NUMBER_OF_CARDS = 77;
 // Tehdään array jossa on korttien numerot 1-NUMBER_OF_CARDS
-const cardNumbers = [...Array(1-77).keys()].map((x) => x + 1);
+const cardNumbers = [...Array(NUMBER_OF_CARDS).keys()].map((x) => x + 1);
 
 // Kopioidaan uuteen vektoriin
-let imageNumbers = [77];
+let imageNumbers = [...cardNumbers];
 
 // Tarvittavat komponentit, haetaan ID:llä
 const card = document.getElementById("card");
