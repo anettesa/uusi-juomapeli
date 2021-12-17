@@ -1,0 +1,44 @@
+body
+    {
+        background-color: rgb(255, 247, 212);
+        text-align: center;
+        align-self: center;
+    }
+ul.valikko
+    {
+        background-color: rgb(255, 192, 75);
+        font-family: Lucida;
+        align-items: center;
+        text-align: center;
+    }
+ul.palkki
+    {text-align: center;
+    }
+ul.sisalto
+    {
+        text-align: center;
+    }
+ul.banneri
+    {
+        
+    }
+h1 {
+    font-family: Lucida;
+    color: rgb(0, 0, 0);
+    font-size: xx-large;
+    text-align: center;
+   }
+a, a:link {
+    color: #ffffff;
+    text-decoration: none;
+    font-style: oblique;
+    font-size: small;
+
+}
+a:visited {
+    text-decoration: line-through;
+    color:rgb(255, 240, 209)
+}
+a:hover, a:active {
+    color: #616161
+}
