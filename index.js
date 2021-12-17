@@ -10,7 +10,7 @@ window.onload = () => {
   image.src = imageArray.shift();
 };
 
-image.addEventListener( "click", () => suffleArray(imageArray)(image.src = imageArray.shift())
+image.addEventListener( "click", () => {image.src = imageArray.shift()}
 );
 
 function shuffleArray(arrray) {
