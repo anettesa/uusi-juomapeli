@@ -31,12 +31,3 @@ img {
   background-color: #2e2e2e;
 }
 
-#button_container {
-  width: 100%;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background-color: #2e2e2e;
-}
