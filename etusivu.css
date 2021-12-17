@@ -17,13 +17,17 @@ ul.palkki
 ul.sisalto
     {
         text-align: center;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        color: rgb(206, 141, 0);
+     font-size: large;
+        text-align: center;
     }
 ul.banneri
     {
         
     }
 h1 {
-    font-family: Lucida;
+    font-family: monospace;
     color: rgb(0, 0, 0);
     font-size: xx-large;
     text-align: center;
