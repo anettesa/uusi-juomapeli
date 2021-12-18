@@ -29,22 +29,26 @@ ul.sisalto
         
     }
 h1 {
-    font-family: monospace;
-    color: rgb(0, 0, 0);
-    font-size: xx-large;
-    text-align: center;
-   }
-a, a:link {
-    color: #ffffff;
-    text-decoration: none;
-    font-style: oblique;
-    font-size: small;
+  font-family: monospace;
+  color: rgb(0, 0, 0);
+  font-size: xx-large;
+  text-align: center;
+}
 
+a,
+a:link {
+  color: #ffffff;
+  text-decoration: none;
+  font-style: oblique;
+  font-size: small;
 }
+
 a:visited {
-    text-decoration: line-through;
-    color:rgb(255, 240, 209)
+  text-decoration: line-through;
+  color: rgb(255, 240, 209);
 }
-a:hover, a:active {
-    color: #616161
+
+a:hover,
+a:active {
+  color: #616161;
 }
