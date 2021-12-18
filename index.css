@@ -6,7 +6,6 @@ body
     }
 ul.valikko
     {
-        background-color: rgb(255, 192, 75);
         font-family: Lucida;
         align-items: center;
         text-align: center;
@@ -18,13 +17,9 @@ ul.sisalto
     {
         text-align: center;
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        color: rgb(206, 141, 0);
+        color: rgb(190, 130, 0);
      font-size: large;
         text-align: center;
-    }
-ul.banneri
-    {
-        
     }
 h1 {
     font-family: monospace;
