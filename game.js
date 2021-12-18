@@ -9,6 +9,8 @@ let imageNumbers = [...cardNumbers];
 // Tässä mode mitä pelataan, tällä voi tehdä sitten muutoksia
 const GAME_MODE = new URLSearchParams(window.location.search).get("mode");
 
+  
+
 // Tarvittavat komponentit, haetaan ID:llä
 const card = document.getElementById("card");
 const front = document.getElementById("cardFront");

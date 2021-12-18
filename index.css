@@ -1,6 +1,6 @@
 body
     {
-        background-color: rgb(255, 247, 212);
+        background-color: rgb(0, 0, 0);
         text-align: center;
         align-self: center;
     }
@@ -15,11 +15,18 @@ ul.palkki
     }
 ul.sisalto
     {
-        text-align: center;
+        align-self: center;
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        color: rgb(190, 130, 0);
-     font-size: large;
+        color: rgb(255, 0, 157);
+        font-size: large;
         text-align: center;
+        width: 500px;
+        align-items: center;
+        text-align: middle;
+      
+        
+        
+        
     }
 h1 {
     font-family: monospace;
