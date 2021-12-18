@@ -94,8 +94,11 @@ button:hover {
   transform: translateX(-100%) rotateY(-180deg);
 }
 
-@media screen {
+@media only screen and (max-width: 600px) {
   [class="col-"] {
-    width: 100%
+    width: 100%;
+  }
+  #cardContainer {
+    width: 100%;
   }
 }
