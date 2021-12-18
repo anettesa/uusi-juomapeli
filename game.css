@@ -93,3 +93,9 @@ button:hover {
 .flipped {
   transform: translateX(-100%) rotateY(-180deg);
 }
+
+@media screen {
+  [class="col-"] {
+    width: 100%
+  }
+}

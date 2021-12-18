@@ -9,6 +9,7 @@ ul.valikko
         font-family: Lucida;
         align-items: center;
         text-align: center;
+        margin-top: 100px
     }
 ul.palkki
     {text-align: center;
@@ -18,11 +19,14 @@ ul.sisalto
         align-self: center;
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         color: rgb(255, 0, 157);
-        font-size: large;
+        font-size: x-large;
         text-align: center;
-        width: 500px;
+        width: 500px, center;
         align-items: center;
         text-align: middle;
+ @media screen {
+   
+ }       
       
         
         
