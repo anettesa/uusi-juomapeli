@@ -157,3 +157,19 @@ function shuffleArray(array) {
     [array[i], array[j]] = [array[j], array[i]];
   }
 }
+
+// Yritä pitää puhelimen näyttö päällä jos se vain toimii
+if ("wakeLock" in navigator) {
+  let wakeLock = null;
+  try {
+    wakeLock = await navigator.wakeLock.request("screen");
+  } catch (err) {
+    console.error("Could not get wake lock", err);
+  }
+
+  document.addEventListener("visibilitychange", async () => {
+    if (wakeLock !== null && document.visibilityState === "visible") {
+      wakeLock = await navigator.wakeLock.request("screen");
+    }
+  });
+}
