@@ -54,6 +54,16 @@ button:hover {
   transition-duration: 0.1s;
 }
 
+#timer {
+  position: absolute;
+  top: 20px;
+  z-index: 200;
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+  display: none;
+}
+
 #gameEnd {
   margin-top: 50px;
   display: none;

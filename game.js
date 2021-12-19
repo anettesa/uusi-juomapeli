@@ -1,5 +1,11 @@
 // JavaScript source code
 const NUMBER_OF_CARDS = 89;
+// Käytetäänkö samoja kortteja loputtomiin ilman pelin loppumista
+let useSameCards = false;
+// Onko ajastettu automaattinen vaihto
+let timedChange = false;
+// Kauanko kortin vaihdon väli (s)
+let timeForNewCard = 10;
 // Tehdään array jossa on korttien numerot 1-NUMBER_OF_CARDS
 let cardNumbers = [...Array(NUMBER_OF_CARDS).keys()].map((x) => x + 1);
 
@@ -14,6 +20,11 @@ switch (GAME_MODE) {
       32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 50,
       52, 53, 54, 55, 57, 58, 60, 64, 65, 73, 75, 76, 79, 80, 81, 82, 83, 86,
     ];
+    break;
+  case "extreme":
+    useSameCards = true;
+    cardNumbers = [2];
+    timedChange = true;
     break;
   case "hardcore":
     // Tässä määritellään mitä kortteja käytetään rennossa modessa
@@ -40,12 +51,44 @@ const front = document.getElementById("cardFront");
 const back = document.getElementById("cardBack");
 const gameEnd = document.getElementById("gameEnd");
 const startAgain = document.getElementById("startAgain");
+const timer = document.getElementById("timer");
 let frontShown = true;
 
 // Tämä funktio lataa kuvat ennen niiden käyttöä selaimen muistiin
 function preloadImage(idx) {
   const img = new Image();
   img.src = `assets/${idx}.png`;
+}
+
+function showNextCard() {
+  // Jos ei yhtään numeroa jäljellä, näytä lopputeksti ja poista kuvat
+  if (imageNumbers.length === 0) {
+    if (!useSameCards) {
+      card.classList.toggle("flipped");
+      gameEnd.style.display = "block";
+      back.style.removeProperty("background-image");
+      front.style.removeProperty("background-image");
+      return;
+    }
+    imageNumbers = [...cardNumbers];
+    shuffleArray(imageNumbers);
+  }
+
+  // Jos etupuoli näkyvissä, lataa takapuolelle uusi kortti (hehe...)
+  if (frontShown) {
+    back.style.backgroundImage = `url(assets/${imageNumbers.shift()}.png)`;
+    // muuten lataa etupuolelle uusi kortti
+  } else {
+    front.style.backgroundImage = `url(assets/${imageNumbers.shift()}.png)`;
+  }
+
+  if (imageNumbers.length > 0) {
+    preloadImage(imageNumbers[0]);
+  }
+  // Ja nyt käännä kortti
+  card.classList.toggle("flipped");
+  // Ja muuta lippu toisinpäin
+  frontShown = !frontShown;
 }
 
 function startGame() {
@@ -73,32 +116,25 @@ startAgain.addEventListener("click", () => {
   startGame();
 });
 
-card.addEventListener("click", () => {
-  // Jos ei yhtään numeroa jäljellä, näytä lopputeksti ja poista kuvat
-  if (imageNumbers.length === 0) {
-    card.classList.toggle("flipped");
-    gameEnd.style.display = "block";
-    back.style.removeProperty("background-image");
-    front.style.removeProperty("background-image");
-    return;
-  }
-
-  // Jos etupuoli näkyvissä, lataa takapuolelle uusi kortti (hehe...)
-  if (frontShown) {
-    back.style.backgroundImage = `url(assets/${imageNumbers.shift()}.png)`;
-    // muuten lataa etupuolelle uusi kortti
-  } else {
-    front.style.backgroundImage = `url(assets/${imageNumbers.shift()}.png)`;
-  }
-
-  if (imageNumbers.length > 0) {
-    preloadImage(imageNumbers[0]);
-  }
-  // Ja nyt käännä kortti
-  card.classList.toggle("flipped");
-  // Ja muuta lippu toisinpäin
-  frontShown = !frontShown;
-});
+if (!timedChange) {
+  card.addEventListener("click", () => {
+    showNextCard();
+  });
+} else {
+  // Ajastin hoitaa korttien vaihdon
+  timer.style.display = "block";
+  let secondsPassed = 0;
+  timer.textContent = timeForNewCard;
+  setInterval(function () {
+    const timeLeft = timeForNewCard - secondsPassed;
+    timer.textContent = timeLeft;
+    secondsPassed++;
+    if (timeLeft === 0) {
+      secondsPassed = 0;
+      showNextCard();
+    }
+  }, 1000);
+}
 
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
