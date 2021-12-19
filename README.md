@@ -1,6 +1,6 @@
 # uusi-juomapeli
 
-Rusia kortti ideoita:
+Uusia kortti ideoita:
 
 - Kaikki juo 2
 
@@ -9,6 +9,10 @@ Rentoon kategorioita lisää:
 - Oulun baarit
 - siiderimerkit
 - alkoholijuomat (ei merkit)
+
+Uusia pelimodeja:
+
+- Extreme, kaikki juo 10s välein 10 kertaa putkeen
 
 ## Kortit rentoon:
 
