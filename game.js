@@ -169,4 +169,9 @@ if ("wakeLock" in navigator) {
     }
   };
   wakeLockEnable();
+  document.addEventListener("visibilitychange", async () => {
+    if (wakeLock !== null && document.visibilityState === "visible") {
+      wakeLockEnable();
+    }
+  });
 }
