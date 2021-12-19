@@ -9,7 +9,7 @@ body {
 }
 
 #banneri {
-  background-image: url("assets/uusibanneri.jpg");
+  background-image: url("assets/images/uusibanneri.jpg");
   width: 100%;
   min-height: 300px;
   background-size: cover;
