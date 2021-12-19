@@ -32,11 +32,11 @@ ul.sisalto {
   align-self: center;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-  color: rgb(255, 0, 157);
-  font-size: x-large;
+  color: #01d4d1;
+  font-size: large;
   text-align: center;
   align-items: center;
-  padding: 0;
+  padding: 30px;
 }
 
 h1 {
@@ -63,3 +63,13 @@ a:hover,
 a:active {
   color: #616161;
 }
+
+h1 {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+  "Lucida Sans", Arial, sans-serif;
+  color: #01d4d1;
+  font-size: xx-large;
+ } 
+
+
+
