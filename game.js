@@ -6,6 +6,8 @@ let useSameCards = false;
 let timedChange = false;
 // Kauanko kortin vaihdon väli (s)
 let timeForNewCard = 10;
+// Montako roundia timerilla juodaan
+let roundsForTimer = 2;
 // Tehdään array jossa on korttien numerot 1-NUMBER_OF_CARDS
 let cardNumbers = [...Array(NUMBER_OF_CARDS).keys()].map((x) => x + 1);
 
@@ -53,6 +55,8 @@ const gameEnd = document.getElementById("gameEnd");
 const startAgain = document.getElementById("startAgain");
 const timer = document.getElementById("timer");
 let frontShown = true;
+let round = 0;
+let timerInterval = null;
 
 // Tämä funktio lataa kuvat ennen niiden käyttöä selaimen muistiin
 function preloadImage(idx) {
@@ -63,11 +67,16 @@ function preloadImage(idx) {
 function showNextCard() {
   // Jos ei yhtään numeroa jäljellä, näytä lopputeksti ja poista kuvat
   if (imageNumbers.length === 0) {
-    if (!useSameCards) {
+    if (!useSameCards || (timedChange && round >= roundsForTimer)) {
       card.classList.toggle("flipped");
       gameEnd.style.display = "block";
       back.style.removeProperty("background-image");
       front.style.removeProperty("background-image");
+      timer.style.display = "none";
+      round = 1;
+      if (timerInterval !== null) {
+        clearTimeout(timerInterval);
+      }
       return;
     }
     imageNumbers = [...cardNumbers];
@@ -92,6 +101,7 @@ function showNextCard() {
 }
 
 function startGame() {
+  round++;
   // Piilotetaan lopputekstit ja napit
   gameEnd.style.display = "none";
   // Sekoitetaan pakka
@@ -102,6 +112,25 @@ function startGame() {
   frontShown = true;
   // ja haetaan eka kortti
   front.style.backgroundImage = `url(assets/${imageNumbers.shift()}.png)`;
+  if (timedChange) {
+    startTimedGame();
+  }
+}
+
+function startTimedGame() {
+  timer.style.display = "block";
+  timer.textContent = timeForNewCard;
+  let secondsPassed = 0;
+  timerInterval = setInterval(function () {
+    const timeLeft = timeForNewCard - secondsPassed;
+    timer.textContent = timeLeft;
+    secondsPassed++;
+    if (timeLeft === 0) {
+      secondsPassed = 0;
+      showNextCard();
+      round++;
+    }
+  }, 1000);
 }
 
 window.onload = () => {
@@ -120,20 +149,6 @@ if (!timedChange) {
   card.addEventListener("click", () => {
     showNextCard();
   });
-} else {
-  // Ajastin hoitaa korttien vaihdon
-  timer.style.display = "block";
-  let secondsPassed = 0;
-  timer.textContent = timeForNewCard;
-  setInterval(function () {
-    const timeLeft = timeForNewCard - secondsPassed;
-    timer.textContent = timeLeft;
-    secondsPassed++;
-    if (timeLeft === 0) {
-      secondsPassed = 0;
-      showNextCard();
-    }
-  }, 1000);
 }
 
 function shuffleArray(array) {
