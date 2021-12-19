@@ -7,7 +7,7 @@ let timedChange = false;
 // Kauanko kortin vaihdon väli (s)
 let timeForNewCard = 10;
 // Montako roundia timerilla juodaan
-let roundsForTimer = 2;
+let roundsForTimer = 10;
 // Tehdään array jossa on korttien numerot 1-NUMBER_OF_CARDS
 let cardNumbers = [...Array(NUMBER_OF_CARDS).keys()].map((x) => x + 1);
 
