@@ -10,11 +10,11 @@ let GAME_MODE_CARDS = [];
 switch (GAME_MODE) {
   case "hardcore":
     // Tässä määritellään mitä kortteja käytetään hardcore modessa
-    GAME_MODE_CARDS = [1, 2, 3, 4, 5, 6];
+    GAME_MODE_CARDS = [2, 3, 4, 7, 8, 9, 10, 11, 14, 16, 17, 19, 20, 22, 23, 24, 25, 26, 27, 30, 32, 33, 34, 35, 36, 38, 39, 40, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 53, 54, 55, 56, 57, 58];
     break;
   case "relaxed":
     // Tässä määritellään mitä kortteja käytetään rennossa modessa
-    GAME_MODE_CARDS = [7, 8, 9, 10, 11, 12, 13];
+    GAME_MODE_CARDS = [1, 2, 3, 4, 5, 6, 8, 9, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 25, 26, 27, 28, 30, 31, 34, 35, 36, 41, 45, 46, 50, 52, 55, 56];
     break;
   // Lisää pelimuotoja voi tehdä kun lisää eri caseja
   case "normal":
