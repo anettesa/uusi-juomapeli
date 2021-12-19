@@ -162,14 +162,14 @@ function shuffleArray(array) {
 if ("wakeLock" in navigator) {
   let wakeLock = null;
   try {
-    wakeLock = await navigator.wakeLock.request("screen");
+    wakeLock = navigator.wakeLock.request("screen");
   } catch (err) {
     console.error("Could not get wake lock", err);
   }
 
   document.addEventListener("visibilitychange", async () => {
     if (wakeLock !== null && document.visibilityState === "visible") {
-      wakeLock = await navigator.wakeLock.request("screen");
+      wakeLock = navigator.wakeLock.request("screen");
     }
   });
 }
