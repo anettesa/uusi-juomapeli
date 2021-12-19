@@ -84,6 +84,9 @@ button:hover {
   height: 100%;
   backface-visibility: hidden;
   background-size: cover;
+  perspective: 1000;
+  -webkit-perspective: 1000;
+  -webkit-backface-visibility: hidden;
 }
 
 #cardBack {

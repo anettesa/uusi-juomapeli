@@ -1,13 +1,35 @@
 // JavaScript source code
 const NUMBER_OF_CARDS = 57;
 // Tehdään array jossa on korttien numerot 1-NUMBER_OF_CARDS
-const cardNumbers = [...Array(NUMBER_OF_CARDS).keys()].map((x) => x + 1);
-
-// Kopioidaan uuteen vektoriin
-let imageNumbers = [...cardNumbers];
+let cardNumbers = [...Array(NUMBER_OF_CARDS).keys()].map((x) => x + 1);
 
 // Tässä mode mitä pelataan, tällä voi tehdä sitten muutoksia
 const GAME_MODE = new URLSearchParams(window.location.search).get("mode");
+let GAME_MODE_CARDS = [];
+
+switch (GAME_MODE) {
+  case "hardcore":
+    // Tässä määritellään mitä kortteja käytetään hardcore modessa
+    GAME_MODE_CARDS = [1, 2, 3, 4, 5, 6];
+    break;
+  case "relaxed":
+    // Tässä määritellään mitä kortteja käytetään rennossa modessa
+    GAME_MODE_CARDS = [7, 8, 9, 10, 11, 12, 13];
+    break;
+  // Lisää pelimuotoja voi tehdä kun lisää eri caseja
+  case "normal":
+  default:
+    // Normaalisti oteta mitään pois
+    break;
+}
+
+// Otetaan pois kortit jotka ei ole käytössä pelimuodossa
+if (GAME_MODE_CARDS.length > 0) {
+  cardNumbers = cardNumbers.filter((id) => GAME_MODE_CARDS.includes(id));
+}
+
+// Kopioidaan uuteen vektoriin
+let imageNumbers = [...cardNumbers];
 
 // Tarvittavat komponentit, haetaan ID:llä
 const card = document.getElementById("card");
