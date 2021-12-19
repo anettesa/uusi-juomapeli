@@ -8,6 +8,10 @@ body {
     "Lucida Sans", Arial, sans-serif;
 }
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 body {
   background-color: #2e2e2e;
   display: flex;
