@@ -4,6 +4,10 @@ body {
   align-self: center;
 }
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 #banneri {
   background-image: url("assets/uusibanneri.jpg");
   width: 100%;
