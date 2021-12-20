@@ -100,7 +100,7 @@ function showNextCard() {
   frontShown = !frontShown;
 }
 
-function startGame() ////
+function startGame() {
   round++;
   // Piilotetaan lopputekstit ja napit
   gameEnd.style.display = "none";
@@ -115,7 +115,7 @@ function startGame() ////
   if (timedChange) {
     startTimedGame();
   }
-
+}
 
 function startTimedGame() {
   timer.style.display = "block";
