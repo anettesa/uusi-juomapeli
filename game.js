@@ -54,6 +54,8 @@ const back = document.getElementById("cardBack");
 const gameEnd = document.getElementById("gameEnd");
 const startAgain = document.getElementById("startAgain");
 const timer = document.getElementById("timer");
+const fullscreen = document.getElementById("fullscreen");
+let isFullscreen = false;
 let frontShown = true;
 let round = 0;
 let timerInterval = null;
@@ -157,6 +159,30 @@ function shuffleArray(array) {
     [array[i], array[j]] = [array[j], array[i]];
   }
 }
+
+// Koko ruudun tila
+fullscreen.addEventListener("click", () => {
+  const elem = document.documentElement;
+  if (!isFullscreen) {
+    isFullscreen = true;
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) {
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) {
+      elem.msRequestFullscreen();
+    }
+  } else {
+    isFullscreen = false;
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) {
+      document.msExitFullscreen();
+    }
+  }
+});
 
 // Yritä pitää puhelimen näyttö päällä jos se vain toimii
 let wakeLock = null;
