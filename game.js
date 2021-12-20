@@ -55,7 +55,6 @@ const gameEnd = document.getElementById("gameEnd");
 const startAgain = document.getElementById("startAgain");
 const timer = document.getElementById("timer");
 const fullscreen = document.getElementById("fullscreen");
-let isFullscreen = false;
 let frontShown = true;
 let round = 0;
 let timerInterval = null;
@@ -163,24 +162,19 @@ function shuffleArray(array) {
 // Koko ruudun tila
 fullscreen.addEventListener("click", () => {
   const elem = document.documentElement;
-  if (!isFullscreen) {
-    isFullscreen = true;
-    if (elem.requestFullscreen) {
-      elem.requestFullscreen();
-    } else if (elem.webkitRequestFullscreen) {
-      elem.webkitRequestFullscreen();
-    } else if (elem.msRequestFullscreen) {
-      elem.msRequestFullscreen();
-    }
-  } else {
-    isFullscreen = false;
-    if (document.exitFullscreen) {
-      document.exitFullscreen();
-    } else if (document.webkitExitFullscreen) {
-      document.webkitExitFullscreen();
-    } else if (document.msExitFullscreen) {
-      document.msExitFullscreen();
-    }
+  fullscreen.style.display = "none";
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) {
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) {
+    elem.msRequestFullscreen();
+  }
+});
+
+document.documentElement.addEventListener("fullscreenchange", (event) => {
+  if (!document.fullscreenElement) {
+    fullscreen.style.display = "block";
   }
 });
 
