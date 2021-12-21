@@ -7,7 +7,7 @@ let timedChange = false;
 // Kauanko kortin vaihdon väli (s)
 let timeForNewCard = 10;
 // Montako roundia timerilla juodaan
-let roundsForTimer = 10;
+let roundsForTimer = 2;
 // Tehdään array jossa on korttien numerot 1-NUMBER_OF_CARDS
 let cardNumbers = [...Array(NUMBER_OF_CARDS).keys()].map((x) => x + 1);
 // Kääntöääni
@@ -27,7 +27,7 @@ switch (GAME_MODE) {
     break;
   case "extreme":
     useSameCards = true;
-    cardNumbers = [2];
+    cardNumbers = [2, 8, 112, 107, 93, 77, 74, 73, 69, 58, 36];
     timedChange = true;
     break;
   case "hardcore":

@@ -10,9 +10,9 @@ body {
 
 #banneri {
   background-image: url("assets/uusibanneri.jpg");
-  width: 100%;
   min-height: 300px;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   background-position: center;
 }
 
@@ -21,14 +21,9 @@ ul.valikko {
   font-family: Lucida;
   align-items: center;
   text-align: center;
-  margin-top: 100px;
 }
 
-ul.palkki {
-  text-align: center;
-}
-
-ul.sisalto {
+#sisalto {
   align-self: center;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
@@ -36,7 +31,7 @@ ul.sisalto {
   font-size: large;
   text-align: center;
   align-items: center;
-  padding: 30px;
+  padding: 10px;
 }
 
 h1 {
@@ -66,10 +61,7 @@ a:active {
 
 h1 {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-  "Lucida Sans", Arial, sans-serif;
+    "Lucida Sans", Arial, sans-serif;
   color: #01d4d1;
   font-size: xx-large;
- } 
-
-
-
+}
